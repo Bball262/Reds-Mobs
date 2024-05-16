@@ -3,13 +3,13 @@ package net.bball_262.redsmobs.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bball_262.redsmobs.entity.animations.ModAnimationDefinitions;
-import net.bball_262.redsmobs.entity.custom.SnailEntity;
+import net.bball_262.redsmobs.entity.custom.Snail;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-public class SnailModel<T extends SnailEntity> extends HierarchicalModel<SnailEntity> {
+public class SnailModel<T extends Snail> extends HierarchicalModel<Snail> {
 	private final ModelPart body;
 	private final ModelPart shell;
 	private final ModelPart eyestalk1;
@@ -56,7 +56,7 @@ public class SnailModel<T extends SnailEntity> extends HierarchicalModel<SnailEn
 	}
 
 	@Override
-	public void setupAnim(SnailEntity snail, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(Snail snail, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.animateWalk(ModAnimationDefinitions.SNAIL_WALK, limbSwing, limbSwingAmount, 0.25f, 2.5f);
 		this.animate(snail.idleAnimationState, ModAnimationDefinitions.SNAIL_IDLE, ageInTicks, 1f);

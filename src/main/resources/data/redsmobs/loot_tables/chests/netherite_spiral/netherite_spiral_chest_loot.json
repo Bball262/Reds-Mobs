@@ -1,0 +1,33 @@
+{
+  "type": "chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "weight": 20,
+          "name": "redsmobs:chests/netherite_spiral/netherite_spiral_chest_netherite_loot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "loot_table",
+          "weight": 100,
+          "name": "redsmobs:chests/netherite_spiral/netherite_spiral_chest_base_loot",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
