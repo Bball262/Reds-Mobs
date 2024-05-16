@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:spawns_coral_reef",
+  "spawners": {
+    "type": "redsmobs:humuhumunukunukuapuaa",
+    "maxCount": 8,
+    "minCount": 3,
+    "weight": 10
+  }
+}
