@@ -1,6 +1,9 @@
 package net.bball_262.redsmobs.entity.custom;
 
+import net.bball_262.redsmobs.util.ModTags;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -8,13 +11,14 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
 public class Snail extends Animal {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public Snail(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public Snail(EntityType<? extends Snail> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
@@ -46,6 +50,11 @@ public class Snail extends Animal {
             --this.idleAnimationTimeout;
         }
     }
+
+    public static boolean checkSnailSpawnRules(EntityType<? extends Animal> pAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return pLevel.getBlockState(pPos.below()).is(ModTags.Blocks.SNAIL_SPAWNABLE_ON) && !isBrightEnoughToSpawn(pLevel, pPos);
+    }
+
 
     protected void updateWalkAnimation(float v) {
         float f;

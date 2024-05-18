@@ -8,7 +8,6 @@ import net.bball_262.redsmobs.entity.custom.Humuhumu;
 import net.bball_262.redsmobs.entity.custom.Snail;
 import net.bball_262.redsmobs.entity.layers.ModModelLayers;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -33,6 +32,8 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.HUMUHUMU.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR_WG,
-                AbstractSchoolingFish::checkMobSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+                AbstractSchoolingFish::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(ModEntities.SNAIL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE_WG,
+                Snail::checkSnailSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 }

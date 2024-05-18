@@ -3,6 +3,7 @@ package net.bball_262.redsmobs;
 import net.bball_262.redsmobs.effects.ModEffects;
 import net.bball_262.redsmobs.entity.ModEntities;
 import net.bball_262.redsmobs.items.ModItems;
+import net.bball_262.redsmobs.util.ModTags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 
@@ -17,5 +18,6 @@ public class RedsMobsConfig
         ModEffects.register(eventBus);
         ModItems.register(eventBus);
         ModEntities.register(eventBus);
+        ModTags.init();
     }
 }

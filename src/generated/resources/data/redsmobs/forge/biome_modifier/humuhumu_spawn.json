@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#forge:spawns_coral_reef",
+  "biomes": "#redsmobs:is_warm_ocean",
   "spawners": {
     "type": "redsmobs:humuhumunukunukuapuaa",
     "maxCount": 8,

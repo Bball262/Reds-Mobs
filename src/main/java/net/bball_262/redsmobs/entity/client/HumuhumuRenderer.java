@@ -24,7 +24,7 @@ public class HumuhumuRenderer extends MobRenderer<Humuhumu, HumuhumuModel<Humuhu
         float x = 4.3F * Mth.sin(0.6F * pAgeInTicks);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(x));
         if (!pEntityLiving.isInWater()) {
-            pPoseStack.translate(0.2F, 0.1F, 0.0F);
+            pPoseStack.translate(0.2F, 0F, 0.0F);
             pPoseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
         }
 

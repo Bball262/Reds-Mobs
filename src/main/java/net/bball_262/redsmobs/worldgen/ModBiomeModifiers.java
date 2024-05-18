@@ -16,13 +16,18 @@ import java.util.List;
 
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> SPAWN_HUMUHUMU = registerKey("humuhumu_spawn");
+    public static final ResourceKey<BiomeModifier> SPAWN_SNAIL = registerKey("snail_spawn");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(SPAWN_HUMUHUMU, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
-                biomes.getOrThrow(ModTags.Biomes.SPAWNS_CORAL_REEFS),
+                biomes.getOrThrow(ModTags.Biomes.IS_WARM_OCEAN),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.HUMUHUMU.get(), 10, 3, 8))));
+
+        context.register(SPAWN_SNAIL, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(ModTags.Biomes.IS_SNAIL_ALLOWED),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.SNAIL.get(), 15, 1, 2))));
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {
